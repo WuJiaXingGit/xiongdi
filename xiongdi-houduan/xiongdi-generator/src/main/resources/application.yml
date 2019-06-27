@@ -1,0 +1,16 @@
+server:
+  port: 8003
+  servlet:
+    context-path: /xiongdi-generator
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/xiongdi?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123456
+  jackson:
+    time-zone: GMT+8 # 时区
+    date-format: yyyy-MM-dd HH:mm:ss
+  resources:
+    static-locations: classpath:/static/,classpath:/views/ # 静态资源路径
