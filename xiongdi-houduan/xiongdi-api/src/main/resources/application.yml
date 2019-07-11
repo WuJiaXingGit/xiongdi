@@ -1,7 +1,38 @@
+# 容器服务
 server:
   port: 8002
   servlet:
     context-path: /xiongdi-api
+
+# spring 配置
 spring:
   profiles:
-    active: dev
+    active: dev # 使用 application-dev.yml配置
+  servlet:
+    multipart: # 文件上传和下载
+      enabled: true
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+# 自定义配置
+xiongdi:
+    redis:
+      open: false # 是否开启缓存 true 开启 false 关闭
+
+# mybatis plus的配置
+mybatis-plus:
+  # mybatis 的原生配置
+  configuration:
+    cache-enabled: false # 是否开启缓存
+    map-underscore-to-camel-case: true # 是否开启自动驼峰命名规则（camel case）映射
+    call-setters-on-nulls: true # MyBatis 在使用 resultMap 来映射查询结果中的列，如果查询结果中包含空值的列
+    jdbc-type-for-null: 'null' # 如果type为空
+  # MyBatis-Plus 全局策略配置
+  global-config:
+  # MyBatis-Plus 全局策略中的 DB 策略配置
+    db-config:
+      id-type: auto # 全局默认主键类型，AUTO:"数据库ID自增", INPUT:"用户输入ID", ID_WORKER:"全局唯一ID (数字类型唯一ID)", UUID:"全局唯一ID UUID";
+      field-strategy: not_null # 字段策略 IGNORED:"忽略判断",NOT_NULL:"非 NULL 判断"),NOT_EMPTY:"非空判断"
+      logic-delete-value: -1 # 逻辑已删除值,(逻辑删除下有)
+      logic-not-delete-value: 0 # 逻辑未删除值,(逻辑删除下有效)
+    banner: false # 是否显示mybatis-plus的图标

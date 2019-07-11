@@ -44,6 +44,7 @@
         <joda.time.version>2.9.9</joda.time.version>
         <lombok.version>1.18.4</lombok.version>
         <swagger.version>2.7.0</swagger.version>
+        <guava.version>20.0</guava.version>
     </properties>
 
     <dependencies>
@@ -173,6 +174,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <!--界面支持-->
         <dependency>
             <groupId>io.springfox</groupId>
@@ -183,6 +189,23 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        <!--mybatis plus的依赖-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatisplus.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-generator</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--修改代码自动重启-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
 </project>
