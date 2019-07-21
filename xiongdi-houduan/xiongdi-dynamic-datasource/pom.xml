@@ -10,6 +10,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>xiongdi-dynamic-datasource</artifactId>
+    <packaging>jar</packaging>
+    <description>多数据源</description>
 
 
 </project>
