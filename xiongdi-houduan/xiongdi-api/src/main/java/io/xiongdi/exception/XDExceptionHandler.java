@@ -1,8 +1,10 @@
 package io.xiongdi.exception;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import io.xiongdi.common.exception.XDException;
 import io.xiongdi.common.utils.R;
 import io.xiongdi.common.utils.ResultType;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  * 异常统一处理器
  * @author wujiaxing
  */
+@Slf4j
 @RestControllerAdvice
 public class XDExceptionHandler {
 
@@ -25,6 +28,11 @@ public class XDExceptionHandler {
         r.put("code", e.getCode());
         r.put("msg", e.getMsg());
         return r;
+    }
+    @ExceptionHandler(JsonProcessingException.class)
+    public R handleJsonProcessingException(JsonProcessingException e) {
+        log.warn("json转换异常", e);
+        return R.error(ResultType.SERVER_INNER_EXCEPTION);
     }
 
     /**

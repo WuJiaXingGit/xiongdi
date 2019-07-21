@@ -3,6 +3,7 @@ package io.xiongdi.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.xiongdi.common.exception.XDException;
+import io.xiongdi.common.utils.DateUtils;
 import io.xiongdi.common.validator.Assert;
 import io.xiongdi.dao.UserDao;
 import io.xiongdi.entity.TokenEntity;
@@ -53,8 +54,7 @@ public class UserServiceImpl extends ServiceImpl<UserDao, UserEntity> implements
         TokenEntity tokenEntity = tokenService.createToken(userEntity.getUserId());
         Map<String,Object> map = new HashMap<>(2);
         map.put("token", tokenEntity.getToken());
-        // +8 的意思是时区偏移量，我们是东8区
-        map.put("expire", tokenEntity.getExpireTime().toInstant(ZoneOffset.of("+8")).toEpochMilli() + System.currentTimeMillis());
+        map.put("expire", DateUtils.toMilliSeconds(tokenEntity.getExpireTime()) - DateUtils.currentMillSeconds());
         map.put("code", 0);
         return map;
     }
