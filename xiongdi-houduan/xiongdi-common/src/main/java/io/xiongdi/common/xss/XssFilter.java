@@ -1,7 +1,5 @@
 package io.xiongdi.common.xss;
 
-import org.apache.commons.io.FilenameUtils;
-
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;

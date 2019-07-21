@@ -2,6 +2,7 @@ package io.xiongdi.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.xiongdi.common.utils.DateUtils;
 import io.xiongdi.dao.TokenDao;
 import io.xiongdi.entity.TokenEntity;
 import io.xiongdi.service.TokenService;
@@ -40,8 +41,7 @@ public class TokenServiceImpl extends ServiceImpl<TokenDao, TokenEntity> impleme
         // 得到当前时间
         LocalDateTime now = LocalDateTime.now();
         // 根据过期时间加上当前时间，得到token的有效期
-        long indate = LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli() + EXPIRE;
-        LocalDateTime tokenExpireDateTime = LocalDateTime.ofInstant(new Date(indate).toInstant(), ZoneId.systemDefault());
+        LocalDateTime tokenExpireDateTime = DateUtils.addDateMilliSecond(now, EXPIRE);
         // 生成token
         String token = generateToken();
         // 创建实体对象

@@ -43,7 +43,7 @@
         <fastjson.version>1.2.45</fastjson.version>
         <joda.time.version>2.9.9</joda.time.version>
         <lombok.version>1.18.4</lombok.version>
-        <swagger.version>2.7.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
         <guava.version>20.0</guava.version>
     </properties>
 
@@ -167,17 +167,6 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>${swagger.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>guava</artifactId>
-                    <groupId>com.google.guava</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
         </dependency>
         <!--界面支持-->
         <dependency>

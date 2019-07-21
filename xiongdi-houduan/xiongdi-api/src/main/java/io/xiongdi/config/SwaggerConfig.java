@@ -31,6 +31,7 @@ public class SwaggerConfig {
     @Bean
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
+                .pathMapping("/")
                 .select()
                 // 方法需要有ApiOperation注解才能生存接口文档
                 .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
@@ -49,7 +50,7 @@ public class SwaggerConfig {
      * @return
      */
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("兄弟足浴").description("xd-api文档").termsOfServiceUrl("http://www.localhost:8002").version("1.0.0").build();
+        return new ApiInfoBuilder().title("兄弟足浴").description("xd-api文档").termsOfServiceUrl("http://localhost:8002").version("1.0.0").build();
     }
 
     private List<ApiKey> security() {
