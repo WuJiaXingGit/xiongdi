@@ -3,7 +3,7 @@ package io.xiongdi.common.annotation;
 import java.lang.annotation.*;
 
 /**
- * 系统日志注解
+ * 系统日志
  * @author wujiaxing
  * @date 2019-07-24
  */
