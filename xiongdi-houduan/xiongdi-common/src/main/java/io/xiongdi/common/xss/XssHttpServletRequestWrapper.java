@@ -36,7 +36,7 @@ public class XssHttpServletRequestWrapper extends HttpServletRequestWrapper {
         if (parameterMap.size() > 0) {
             Map<String, String[]> map = new LinkedHashMap<>();
             for (String k : parameterMap.keySet()) {
-                String[] v = parameterMap.get("s");
+                String[] v = parameterMap.get(k);
                 for (int i = 0; i < v.length; i++) {
                     v[i] = xssEncode(v[i]);
                 }

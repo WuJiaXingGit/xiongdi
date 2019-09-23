@@ -262,4 +262,12 @@ public class DateUtils {
         return Instant.now().toEpochMilli();
     }
 
+
+    /**
+     * 获取当前时间 yyyy-MM-dd HH:mm:ss
+     * @return
+     */
+    public static LocalDateTime now() {
+        return LocalDateTime.now();
+    }
 }

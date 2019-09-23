@@ -14,3 +14,18 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
   resources:
     static-locations: classpath:/static/,classpath:/views/ # 静态资源路径
+
+
+
+
+pagehelper:
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+
+#指定数据库，可选值有【mysql、oracle、sqlserver、postgresql】
+xiongdi:
+  database: mysql
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml

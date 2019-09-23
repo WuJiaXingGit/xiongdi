@@ -48,6 +48,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <!--spring-boot支持web的坐标-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -191,10 +196,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--修改代码自动重启-->
+
+        <!--导入日志框架框架-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-devtools</artifactId>
+            <artifactId>spring-boot-starter-logging</artifactId>
         </dependency>
     </dependencies>
 </project>

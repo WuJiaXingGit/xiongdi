@@ -1,6 +1,11 @@
 # 容器服务
 server:
   port: 8002
+  tomcat:
+#    最大使用线程
+    max-threads: 1000
+#    最小的备用线程
+    min-spare-threads: 30
   servlet:
     context-path: /xiongdi-api
 
@@ -16,8 +21,8 @@ spring:
 
 # 自定义配置
 xiongdi:
-    redis:
-      open: false # 是否开启缓存 true 开启 false 关闭
+  redis:
+    open: false # 是否开启缓存 true 开启 false 关闭
 
 # mybatis plus的配置
 mybatis-plus:

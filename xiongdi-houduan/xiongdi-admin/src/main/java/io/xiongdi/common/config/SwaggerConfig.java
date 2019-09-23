@@ -10,6 +10,11 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * swagger 配置类
+ * @author wujiaxing
+ * @date 2019-07-27
+ */
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -22,7 +27,8 @@ public class SwaggerConfig {
                 .paths(PathSelectors.any())
                 .build()
                 .apiInfo(new ApiInfoBuilder().title("springBoot整合Swagger").description("整合详细信息")
-                        .version("9.0").contact(new Contact("啊啊啊","aaa", "aaa@qq.com"))
+                        .version("9.0").contact(new Contact(
+                                "啊啊啊","aaa", "aaa@qq.com"))
                         .license("http://wwww.baidu.com").build());
     }
 }

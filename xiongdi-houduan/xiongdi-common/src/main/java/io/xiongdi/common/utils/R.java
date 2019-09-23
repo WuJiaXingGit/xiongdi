@@ -11,7 +11,10 @@ public class R extends HashMap<String, Object> {
     /**
      * 无参构造
      */
-    public R() {}
+    public R() {
+        this.put("code", 0);
+        this.put("msg", "success");
+    }
 
     /**
      * 有参构造
@@ -62,7 +65,29 @@ public class R extends HashMap<String, Object> {
      * @return
      */
     public static R error() {
-        return new R();
+        return error(ResultType.SERVER_INNER_EXCEPTION);
+    }
+
+    /**
+     * 错误结果包装
+     * @param msg
+     * @return
+     */
+    public static R error(String msg) {
+        return error(500, msg);
+    }
+
+    /**
+     * 错误结果包装
+     * @param code
+     * @param msg
+     * @return
+     */
+    public static R error(int code, String msg) {
+        R r = new R();
+        r.put("code", code);
+        r.put("msg", msg);
+        return r;
     }
 
     /**

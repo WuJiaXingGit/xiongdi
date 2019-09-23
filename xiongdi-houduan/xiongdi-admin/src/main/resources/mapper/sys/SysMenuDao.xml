@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.xiongdi.modules.sys.dao.SysMenuDao">
+
+    <!--查询所有子菜单-->
+    <select id="queryListParentId" resultType="io.xiongdi.modules.sys.entity.SysMenuEntity">
+       SELECT
+            *
+        FROM
+            sys_menu
+        WHERE
+            parent_id = #{parentId}
+        ORDER BY
+            order_num
+    </select>
+
+    <!--不含按钮的菜单列表-->
+    <select id="queryNotButtonList" resultType="io.xiongdi.modules.sys.entity.SysMenuEntity">
+        SELECT
+             *
+        FROM
+            sys_menu m
+        WHERE
+            m.type != 2
+        ORDER BY
+            order_num
+    </select>
+
+</mapper>

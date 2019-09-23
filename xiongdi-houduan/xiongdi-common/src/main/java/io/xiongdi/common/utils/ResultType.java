@@ -72,11 +72,20 @@ public enum ResultType {
     /**
      * token已过期
      */
-    TOKEN_EXPIRE(109, "token已过期"),
+    TOKEN_EXPIRE(401, "会话已过期"),
     /**
      * 包含非法字符
      */
-    INCLUTE_ILLEGALITY_PARAM(121, "包含非法参数");
+    INCLUTE_ILLEGALITY_PARAM(121, "包含非法参数"),
+    /**
+     * 没有权限，请联系管理员授权
+     */
+    NOT_AUTHORIZATION(410, "没有权限，请联系管理员授权"),
+
+    /**
+     * 原密码错误
+     */
+    PASSWORD_ERROR(411, "原密码错误");
 
     private int code;
     private String msg;

@@ -1,4 +1,4 @@
-package io.xiongdi.common.validator.Group;
+package io.xiongdi.common.validator.group;
 
 import javax.validation.GroupSequence;
 
@@ -8,5 +8,5 @@ import javax.validation.GroupSequence;
  * @date 2019-07-14
  */
 @GroupSequence({AddGroup.class, UpdateGroup.class})
-public class Group {
+public interface Group {
 }
